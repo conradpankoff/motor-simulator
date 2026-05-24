@@ -1,0 +1,179 @@
+:root {
+  --bg: #0a0a14;
+  --panel: #0e0e18;
+  --panel2: #0b0b14;
+  --border: #22223a;
+  --text: #b4b4cc;
+  --dim: #44445a;
+  --accent: #4a9eff;
+  --U: #ff4455;
+  --V: #3dff88;
+  --W: #4488ff;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'SF Mono', 'Menlo', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Motor panel ── */
+#motorPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  min-width: 0;
+}
+.app-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+}
+#motorSvg {
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  max-height: 520px;
+}
+
+/* ── Control panel ── */
+#ctrlPanel {
+  width: 286px;
+  min-width: 286px;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  padding: 14px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  overflow-y: auto;
+}
+
+.sec {
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--dim);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Button groups ── */
+.btn-row { display: flex; gap: 3px; flex-wrap: wrap; }
+.btn {
+  flex: 1;
+  min-width: 52px;
+  padding: 5px 3px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 9.5px;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: border-color 0.1s, color 0.1s, background 0.1s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.on {
+  background: rgba(74,158,255,0.13);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn.on-G {
+  background: rgba(61,255,136,0.1);
+  border-color: var(--V);
+  color: var(--V);
+}
+
+/* ── Sliders ── */
+.ctrl { display: flex; flex-direction: column; gap: 4px; }
+.ctrl-lbl { display: flex; justify-content: space-between; align-items: baseline; }
+.ctrl-name { font-size: 9.5px; color: var(--dim); }
+.ctrl-val  { font-size: 11px; font-weight: 700; color: var(--accent); min-width: 42px; text-align: right; }
+input[type=range] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 3px;
+  background: var(--border); border-radius: 2px;
+  outline: none; cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  background: var(--accent); border-radius: 50%;
+  border: 2px solid var(--bg); cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 12px; height: 12px;
+  background: var(--accent); border-radius: 50%;
+  border: 2px solid var(--bg); cursor: pointer;
+}
+input[type=range].muted { opacity: 0.22; pointer-events: none; }
+
+/* ── Readout grid ── */
+.ro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.ro-box {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 6px 8px;
+}
+.ro-lbl { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--dim); margin-bottom: 1px; }
+.ro-val { font-size: 16px; font-weight: 700; color: var(--accent); line-height: 1.1; }
+.ro-unit { font-size: 8px; color: var(--dim); margin-left: 1px; }
+
+/* ── Phase voltage bars ── */
+.phase-row { display: flex; gap: 5px; }
+.phase-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.phase-track {
+  width: 100%; height: 52px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  position: relative; overflow: hidden;
+}
+/* centre line */
+.phase-track::after {
+  content: ''; position: absolute;
+  left: 0; right: 0; top: 50%; height: 1px;
+  background: var(--border);
+}
+.phase-fill {
+  position: absolute; left: 0; right: 0;
+}
+.phase-lbl { font-size: 9px; font-weight: 700; }
+
+/* ── Run/Pause button ── */
+#runBtn {
+  width: 100%; padding: 9px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; border-radius: 3px;
+  cursor: pointer; transition: background 0.1s;
+}
+#runBtn:hover { background: rgba(74,158,255,0.1); }
+#runBtn.paused { border-color: var(--U); color: var(--U); }
+#runBtn.paused:hover { background: rgba(255,68,85,0.1); }
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  body { flex-direction: column; overflow-y: auto; height: auto; }
+  #motorPanel { min-height: 340px; flex: none; }
+  #ctrlPanel { width: 100%; min-width: 0; border-left: none; border-top: 1px solid var(--border); }
+}
