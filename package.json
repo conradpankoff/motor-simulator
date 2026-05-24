@@ -1,0 +1,26 @@
+{
+  "name": "motor-simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "motor.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conradpankoff/motor-simulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/conradpankoff/motor-simulator/issues"
+  },
+  "homepage": "https://github.com/conradpankoff/motor-simulator#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "serve": "^14.2.6"
+  }
+}
