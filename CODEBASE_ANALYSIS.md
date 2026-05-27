@@ -13,7 +13,7 @@ This document is based on:
   - `/tmp/workspace/conradpankoff/motor-simulator/playwright.config.js`
 - Existing documentation:
   - `/tmp/workspace/conradpankoff/motor-simulator/README.md`
-- Copilot session history available in `session_store` for repository `conradpankoff/motor-simulator`
+- Copilot session history available in the platform `session_store` database (cross-session metadata and turn history) for repository `conradpankoff/motor-simulator`
 
 ## Application Description and Purpose
 
@@ -82,7 +82,7 @@ The current implementation successfully provides:
 
 ### 2. Physics/Control Fidelity Gap (Expected, Moderate)
 
-- **Intended (inferred from naming):** Terms like “FOC / Sine,” “Closed Loop,” and “Sensorless” suggest realistic motor-control concepts.
+- **Intended (inferred from naming):** Terms like “FOC/Sine,” “Closed Loop,” and “Sensorless” suggest realistic motor-control concepts.
 - **Current:** Implementation is intentionally simplified:
   - Torque model is sinusoidal and lumped.
   - Drag and field-weakening are scalar approximations.
