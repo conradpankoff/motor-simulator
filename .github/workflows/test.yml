@@ -27,9 +27,7 @@ jobs:
         id: playwright-cache
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.cache/ms-playwright
-            ~/AppData/Local/ms-playwright
+          path: ${{ runner.os == 'Windows' && '~\\AppData\\Local\\ms-playwright' || '~/.cache/ms-playwright' }}
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
