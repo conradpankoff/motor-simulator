@@ -27,7 +27,7 @@ jobs:
         id: playwright-cache
         uses: actions/cache@v4
         with:
-          path: /home/runner/.cache/ms-playwright
+          path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
