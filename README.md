@@ -9,7 +9,7 @@ It helps users understand the relationship between electrical drive signals, rot
 
 ## Application Functionality
 
-### 1. Real-Time Motor Visualisation
+### 1. Real-Time Motor Visualization
 - Displays a stylized motor cross-section with stator coils and rotor poles.
 - Animates rotor motion continuously to connect control inputs to visible movement.
 - Shows a rotating stator field vector to illustrate commanded electrical angle and field direction.
@@ -34,7 +34,7 @@ It helps users understand the relationship between electrical drive signals, rot
 ### 4. Interactive Control Inputs
 - **Throttle:** Sets excitation magnitude and strongly influences torque/speed behavior.
 - **Manual Angle:** Sets commanded electrical angle in Manual mode.
-- **Advance Angle (Field Weakening):** Shifts electrical lead to demonstrate speed/torque trade-offs.
+- **Advance Angle (Field Weakening):** Shifts electrical lead to demonstrate speed/torque tradeoffs.
 - **Pole Pair Selection:** Switches motor pole-pair count and updates electrical/mechanical angle relationship.
 - **Run/Pause:** Freezes and resumes simulation dynamics for step-by-step explanation.
 
